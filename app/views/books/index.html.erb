@@ -1,5 +1,5 @@
 <h1>Books一覧</h1>
 <p>Find me in app/views/books/index.html.erb</p>
 
-<%= render 'list', book_opinion: @book_opinion %>
-<%= render 'list', user: @user %>
+<!--部分テンプレート（list）で使用する変数をローカル変数に変換して渡している。本来このshowページでコントローラから渡された＠（）の変数を使うためコントローラの記述も忘れずに行う-->
+<%= render 'books/list', user: @user, book_opinion: @book_opinion %>

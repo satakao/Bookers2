@@ -1,9 +1,15 @@
 
+
 <div class="container">
   <div class="row">
     <div class="col-md-3">
-      <%= link_to ' 編集' , edit_user_path(user), class: "btn btn-secondary" %>
-      <h1>New Book</h1>
+      <h1>User info</h1>
+
+        <%= image_tag user.get_image %><!--userモデルに作ったget_imageを呼び出して画像の表示をしている-->
+      <%= link_to(edit_user_path(user), class: "btn btn-secondary") do %>
+        <i class="fa-solid fa-user-gear"></i>
+      <% end %>
+      <h2>New Book</h2>
       <%= form_with model:book_opinion do |f| %>
         <h4>Title</h4>
         <%= f.text_field :title %>

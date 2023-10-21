@@ -1,5 +1,5 @@
 <div class ="container px-5 px-sm-o">
   
 </div>
-<%= render 'books/list', book_opinion: @book_opinion %>
-<%= render 'books/list', user: @user %>
+<!--部分テンプレート（list）で使用する変数をローカル変数に変換して渡している。本来このshowページでコントローラから渡された＠（）の変数を使うためコントローラの記述も忘れずに行う-->
+<%= render 'books/list', user: @user, book_opinion: @book_opinion %>
