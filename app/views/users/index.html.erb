@@ -1,7 +1,32 @@
-<h1>User一覧ページ</h1>
-<p>Find me in app/views/users/index.html.erb</p>
-<!--部分テンプレート（list）で使用する変数をローカル変数に変換して渡している。本来このshowページでコントローラから渡された＠（）の変数を使うためコントローラの記述も忘れずに行う-->
-<%= render 'books/list', user: @user, book_opinion: @book_opinion %>
+<div class="container">
+    <div class="row">
+        <%= render 'books/list', user: @user, book_opinion: @book_opinion %><!--部分テンプレート（list）で使用する変数をローカル変数に変換して渡している。本来このshowページでコントローラから渡された＠（）の変数を使うためコントローラの記述も忘れずに行う-->
+        <div class="col-md-8 offset-md-1">
+            <h1>Users</h1>
+            <table class ="table">
+                <% @users.each do |user_all| %>
+                    <thead>
+                      <tr>
+                        <th>image</th>
+                        <th>name</th>
+                        <th colspan="3"> </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><%=image_tag user_all.get_image %></td>
+                            <td><%= user_all.name %></td>
+                            <td><%= link_to "Show", user_path(user_all.id) %></td>
+                        </tr>
+                    </tbody>
+                <% end %>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
 
 
 
