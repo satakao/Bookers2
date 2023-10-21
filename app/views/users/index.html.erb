@@ -3,13 +3,13 @@
         <%= render 'books/list', user: @user, book_opinion: @book_opinion %><!--部分テンプレート（list）で使用する変数をローカル変数に変換して渡している。本来このshowページでコントローラから渡された＠（）の変数を使うためコントローラの記述も忘れずに行う-->
         <div class="col-md-8 offset-md-1">
             <h1>Users</h1>
-            <table class ="table">
+            <table class ="table users">
                 <% @users.each do |user_all| %>
                     <thead>
                       <tr>
                         <th>image</th>
                         <th>name</th>
-                        <th colspan="3"> </th>
+                        <th colspan="3"></th>
                       </tr>
                     </thead>
                     <tbody>

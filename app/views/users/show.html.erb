@@ -1,5 +1,30 @@
-<div class ="container px-5 px-sm-o">
-  
+<div class="container">
+  <div class="row">
+    <!--部分テンプレート（list）で使用する変数をローカル変数に変換して渡している。本来このshowページでコントローラから渡された＠（）の変数を使うためコントローラの記述も忘れずに行う-->
+    <%= render 'books/list', user: @user, book_opinion: @book_opinion %>
+    <div class="col-md-8 offset-md-1">
+      <h1>Books</h1>
+      <table class="table books">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Title</th>
+              <th>Opinion</th>
+            </tr>
+          </thead>
+          <% @books.each do |book| %>
+              <tbody>
+                <tr>
+                  <td><%= image_tag @user.get_image %></td>
+                  <td> <%= link_to(book_path(book.id) ) do %>
+                        <%= book.title %>
+                       <% end %>
+                      </td>
+                  <td><%= book.opinion %></td>
+                </tr>
+              </tbody>
+          <% end %>
+      </table>
+    </div>
+  </div>
 </div>
-<!--部分テンプレート（list）で使用する変数をローカル変数に変換して渡している。本来このshowページでコントローラから渡された＠（）の変数を使うためコントローラの記述も忘れずに行う-->
-<%= render 'books/list', user: @user, book_opinion: @book_opinion %>
