@@ -15,12 +15,12 @@
           <% @books.each do |book| %>
               <tbody>
                 <tr>
-                  <td><%= image_tag @user.get_image %></td>
+                  <td><%= image_tag @user.get_profile_image(150,150) %></td>
                   <td> <%= link_to(book_path(book.id) ) do %>
                         <%= book.title %>
                        <% end %>
                       </td>
-                  <td><%= book.opinion %></td>
+                  <td><%= book.body %></td>
                 </tr>
               </tbody>
           <% end %>

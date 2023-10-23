@@ -1,4 +1,12 @@
 <div class="container">
+  <% if @book_opinion.errors.any? %>
+  <%=@book_opinion.errors.count %>件のエラーが発生しました
+  <ul>
+    <%@book_opinion.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+  <% end %>
   <div class="row">
     <!--部分テンプレート（list）で使用する変数をローカル変数に変換して渡している。本来このshowページでコントローラから渡された＠（）の変数を使うためコントローラの記述も忘れずに行う-->
     <%= render 'books/list', user: @user, book_opinion: @book_opinion %>
@@ -17,7 +25,7 @@
                 <td><%= link_to(book_path(book.id) ) do %>
                       <%= book.title %>
                      <% end %></td>
-                <td><%= book.opinion %></td>
+                <td><%= book.body %></td>
               </tr>
             </tbody>
           <% end %>

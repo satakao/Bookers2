@@ -8,6 +8,10 @@
   height:100px;
   background-color:#343a40;
 }
+.home_top_header h1{
+  text-align:center;
+  
+}
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
