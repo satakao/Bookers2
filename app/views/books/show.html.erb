@@ -1,3 +1,7 @@
+
+<div class = "flash">
+  <h4><%= flash[:notice] %></h4>
+</div>
 <div class="container">
   <div class="row">
     <!--部分テンプレート（list）で使用する変数をローカル変数に変換して渡している。本来このshowページでコントローラから渡された＠（）の変数を使うためコントローラの記述も忘れずに行う-->
@@ -7,7 +11,9 @@
       <table class="table books">
         <tbody>
           <tr>
-            <td><%= image_tag @user.get_profile_image(150,150) %><br>
+            <td><%= link_to user_path(@user.id) do %>
+                  <%= image_tag @user.get_profile_image(150,150) %>
+                <% end %><br>
                 <%= link_to(user_path(@user.id) ) do %>
                   <%= @user.name %>
                  <% end %></td>
@@ -15,6 +21,15 @@
                   <%= @book.title %>
                  <% end %></td>
             <td><%= @book.body %></td>
+            <% if @user == current_user %>
+
+            <td><%= link_to(edit_book_path(@book.id),class: "btn btn-success btn-sm mb-3") do %>
+                  <%= "Edit" %>
+                <% end %></td>
+            <td><%= link_to(book_path(@book.id),method: :delete,"data-confirm" => "本当に消しますか？", class: "btn btn-danger btn-sm mb-3",) do %>
+                <%= "Destroy" %>
+                <% end %></td>
+            <% end %>
           </tr>
         </tbody>
       </table>

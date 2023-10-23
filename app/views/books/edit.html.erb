@@ -1,8 +1,25 @@
-<h1>Editing Book</h1>
-<%= form_with model: @book_opinion do |f| %>
-  <h4>Title</h4>
-  <%= f.text_field :title %>
-  <h4>Opinion</h4>
-  <%= f.text_area :body %><br>
-  <%= f.submit 'Create Book' %>
-<% end %>
+<div class ="container">
+  <div class="row">
+    <div class="col-10 mx-auto col-sm-12 col-lg-8 col-xl-6">
+      <h1>Editing Book</h1>
+          <% if @book_opinion.errors.any? %>
+            <%=@book_opinion.errors.count %>errors prohibited this obj from being saved:
+            <ul>
+              <%@book_opinion.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+              <% end %>
+            </ul>
+          <% end %>
+      <%= form_with model: @book_opinion do |f| %>
+        <h4>Title</h4>
+        <%= f.text_field :title %>
+        <h4>Opinion</h4>
+        <%= f.text_area :body %><br>
+        <%= f.submit 'Update Book' %>
+      <% end %>
+      <%= link_to "Show", book_path(@book_opinion.id) %>
+      <%= "|" %>
+      <%= link_to "Back", books_path %>
+    </div>
+  </div>
+</div>

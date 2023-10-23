@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users#デバイスライブラリを使用する際にURLとしてusersを含む
   root to:"homes#top"
-  get "/homes/about" => "homes#about" ,as: "home/about"
+  get "/home/about" => "homes#about" ,as: "home/about"
 
 
   resources :books, only: [:new, :create, :edit, :index, :show, :update, :destroy]#resourcesでbooksコントローラのルーティングを自動生成してくれる。onlyは[]内のもののみ生成したいとき

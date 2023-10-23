@@ -1,4 +1,12 @@
 <div class="container">
+  <% if @user.errors.any? %>
+    <%=@user.errors.count %>件のエラーが発生しました
+    <ul>
+      <%@user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
   <div class="row">
     <div class="mx-auto col-10 px-5 mt-2">
       <h1>User info</h1>

@@ -1,3 +1,6 @@
+<div class = "flash">
+  <h4><%= flash[:notice] %></h4>
+</div>
 <div class="container">
   <div class="row">
     <!--部分テンプレート（list）で使用する変数をローカル変数に変換して渡している。本来このshowページでコントローラから渡された＠（）の変数を使うためコントローラの記述も忘れずに行う-->
@@ -15,7 +18,9 @@
           <% @books.each do |book| %>
               <tbody>
                 <tr>
-                  <td><%= image_tag @user.get_profile_image(150,150) %></td>
+                  <td><%= link_to user_path(@user.id) do %>
+                    <%= image_tag @user.get_profile_image(150,150) %>
+                    <% end %></td>
                   <td> <%= link_to(book_path(book.id) ) do %>
                         <%= book.title %>
                        <% end %>
